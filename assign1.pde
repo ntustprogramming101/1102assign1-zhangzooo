@@ -18,7 +18,7 @@ int laserB;
 int speedL;
 
 void setup() {
-	size(640, 480, P2D);
+  size(640, 480, P2D);
 
 // load the image of background, groundhog, life, and soil
   bgImg=loadImage("img/bg.jpg");
@@ -45,7 +45,7 @@ void setup() {
 //laser  
   speedL=-2;
   laserA=robotX+25;
-  laserB=robotX+65;
+  laserB=robotX+25;
 }
 
 
@@ -60,7 +60,7 @@ void draw() {
 //draw a sun
   stroke(255,255,0);
   strokeWeight(5);
-  ellipse(590,50,120,120);
+  circle(590,50,120);
   fill(253,184,19);
   
 //draw the lawn
@@ -76,20 +76,25 @@ void draw() {
   image(soldierImg,soldierX,soldierY);
   soldierX+=speedS;
   soldierX = soldierX %720;
+ 
+  //set the position of the robot 
+  image(robotImg,robotX,robotY);
+
   
 //laser
   stroke(#FF0000);
   strokeWeight(10);
   line(laserA,robotY+37,laserB,robotY+37);
   laserA+=speedL;
-  laserB+=speedL;  
-  if(laserA<robotX-160){
-  laserA=robotX+25;
-  laserB=robotX+65;
+  if(laserB-laserA==40){
+  laserB+=speedL;
   }
   
-
-//set the position of the robot 
-  image(robotImg,robotX,robotY);
-
+  if(laserA<robotX-160){
+  laserA=robotX+25;
+  laserB=robotX+25;
+  laserA+=speedL;
+  laserB+=speedL;  
+  }
+  
 }
