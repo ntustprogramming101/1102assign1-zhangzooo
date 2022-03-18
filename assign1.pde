@@ -60,7 +60,7 @@ void draw() {
 //draw a sun
   stroke(255,255,0);
   strokeWeight(5);
-  circle(590,50,120);
+  elllipse(590,50,120,120);
   fill(253,184,19);
   
 //draw the lawn
